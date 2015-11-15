@@ -8,6 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	config.vm.box = "bento/centos-7.1"
 	config.vm.provider :virtualbox do |vb|
+		vb.name = "sandbox-vm-centos"
 		vb.customize ['modifyvm', :id, '--memory', '1024', '--cpus', '2']
 		vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
 		vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]

@@ -11,7 +11,7 @@ sudo /usr/sbin/chkconfig firewalld off
 
 sudo yum update -y
 sudo yum install -y automake gcc gcc-c++ libtool
-sudo yum install -y git vim
+sudo yum install -y git vim nmap httpd
 
 pushd /vagrant
 
