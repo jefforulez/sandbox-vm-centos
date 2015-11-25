@@ -2,6 +2,8 @@
 
 PATH=/usr/bin
 
+echo "running scripts/vagrant_provision.sh"
+
 #
 # system
 #

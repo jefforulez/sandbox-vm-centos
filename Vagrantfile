@@ -14,7 +14,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
 	end
 
-	if ! ENV['VAGRANT_BRIEF']
+	if ENV['VAGRANT_MOUNT_DATA']
+		config.vm.synced_folder ENV['VAGRANT_MOUNT_DATA'], "/mnt/vagrant_data",
+		create: true, owner: "vagrant", group: "www-data", mount_options: ['dmode=550,fmode=440']
+	end
+
+	if ENV['VAGRANT_SKIP_PROVISION']
 		config.vm.provision :shell, path: "./scripts/vagrant_provision.sh"
 	end
 
